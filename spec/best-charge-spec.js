@@ -1,9 +1,9 @@
 describe('Take out food', function () {
 
   it('should generate best charge when best is 50% discount on specified items', function() {
-    let inputs = ["ITEM0001 x 1", "ITEM0013 x 2", "ITEM0022 x 1"];
-    let summary = bestCharge(inputs).trim();
-    let expected = `
+    const inputs = ["ITEM0001 x 1", "ITEM0013 x 2", "ITEM0022 x 1"];
+    const summary = bestCharge(inputs).trim();
+    const expected = `
 ============= Order Detail =============
 Fried Chicken x 1 = 18 yuan
 Hamburger x 2 = 12 yuan
@@ -18,9 +18,9 @@ Total：25 yuan
   });
 
   it('should generate best charge when best is Buy 30 save 6 yuan', function() {
-    let inputs = ["ITEM0013 x 4", "ITEM0022 x 1"];
-    let summary = bestCharge(inputs).trim();
-    let expected = `
+    const inputs = ["ITEM0013 x 4", "ITEM0022 x 1"];
+    const summary = bestCharge(inputs).trim();
+    const expected = `
 ============= Order Detail =============
 Hamburger x 4 = 24 yuan
 Noodle x 1 = 8 yuan
@@ -34,9 +34,9 @@ Total：26 yuan
   });
 
   it('should generate best charge when no promotion can be used', function() {
-    let inputs = ["ITEM0013 x 4"];
-    let summary = bestCharge(inputs).trim();
-    let expected = `
+    const inputs = ["ITEM0013 x 4"];
+    const summary = bestCharge(inputs).trim();
+    const expected = `
 ============= Order Detail =============
 Hamburger x 4 = 24 yuan
 -----------------------------------
