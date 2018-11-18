@@ -1,34 +1,34 @@
 describe('Take out food', function () {
 
-  it('should generate best charge when best is 指定菜品半价', function() {
+  it('should generate best charge when best is 50% discount on specified items', function() {
     let inputs = ["ITEM0001 x 1", "ITEM0013 x 2", "ITEM0022 x 1"];
     let summary = bestCharge(inputs).trim();
     let expected = `
-============= 订餐明细 =============
-黄焖鸡 x 1 = 18元
-肉夹馍 x 2 = 12元
-凉皮 x 1 = 8元
+============= Order Detail =============
+Fried Chicken x 1 = 18 yuan
+Hamburger x 2 = 12 yuan
+Noodle x 1 = 8 yuan
 -----------------------------------
-使用优惠:
-指定菜品半价(黄焖鸡，凉皮)，省13元
+Promotion Applied:
+50% discount on specified items(Fried Chicken，Noodle)，saved 13 yuan
 -----------------------------------
-总计：25元
+Total：25 yuan
 ===================================`.trim()
     expect(summary).toEqual(expected)
   });
 
-  it('should generate best charge when best is 满30减6元', function() {
+  it('should generate best charge when best is Buy 30 save 6 yuan', function() {
     let inputs = ["ITEM0013 x 4", "ITEM0022 x 1"];
     let summary = bestCharge(inputs).trim();
     let expected = `
-============= 订餐明细 =============
-肉夹馍 x 4 = 24元
-凉皮 x 1 = 8元
+============= Order Detail =============
+Hamburger x 4 = 24 yuan
+Noodle x 1 = 8 yuan
 -----------------------------------
-使用优惠:
-满30减6元，省6元
+Promotion Applied:
+Buy 30 save 6 yuan，saved 6 yuan
 -----------------------------------
-总计：26元
+Total：26 yuan
 ===================================`.trim()
     expect(summary).toEqual(expected)
   });
@@ -37,10 +37,10 @@ describe('Take out food', function () {
     let inputs = ["ITEM0013 x 4"];
     let summary = bestCharge(inputs).trim();
     let expected = `
-============= 订餐明细 =============
-肉夹馍 x 4 = 24元
+============= Order Detail =============
+Hamburger x 4 = 24 yuan
 -----------------------------------
-总计：24元
+Total：24 yuan
 ===================================`.trim()
     expect(summary).toEqual(expected)
   });

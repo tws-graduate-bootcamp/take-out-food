@@ -1,19 +1,19 @@
 function loadAllItems() {
   return [{
     id: 'ITEM0001',
-    name: '黄焖鸡',
+    name: 'Fried Chicken',
     price: 18.00
   }, {
     id: 'ITEM0013',
-    name: '肉夹馍',
+    name: 'Hamburger',
     price: 6.00
   }, {
     id: 'ITEM0022',
-    name: '凉皮',
+    name: 'Noodle',
     price: 8.00
   }, {
     id: 'ITEM0030',
-    name: '冰锋',
+    name: 'Soda',
     price: 2.00
   }];
 }

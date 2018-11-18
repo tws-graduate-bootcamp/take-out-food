@@ -1,8 +1,8 @@
 function loadPromotions() {
   return [{
-    type: '满30减6元'
+    type: 'Buy 30 save 6 yuan'
   }, {
-    type: '指定菜品半价',
+    type: '50% discount on specified items',
     items: ['ITEM0001', 'ITEM0022']
   }];
 }

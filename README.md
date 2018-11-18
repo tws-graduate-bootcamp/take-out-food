@@ -1,104 +1,105 @@
 
-## 需求描述
+## Business requirement
 
-某快餐品牌推出了它独家的外卖应用，用户可以在手机上直接下单。该应用会根据用户选择的菜品(Item)、数量(Count)和优惠方式(Promotion)进行计算，告诉用户需要支付的金额(Charge)。
+A restaurant provides theirs' customers an mobile App that customers can order food on mobile phone. And the App will show customers the **charge** based on selected **item**s, **count** and **promotion**.
 
-优惠活动有多种形式。假设用户一次只能使用一种优惠，那么使用哪种优惠省钱最多就会是一个让用户头疼的问题。所以该外卖应用为了方便用户，在用户下单时，会自动选择最优惠的方式并计算出最终金额让用户确认。
+There are multiple kinds of promotion, but only one promotion per order. Then it would be a question for customers, which promotion offers the best price. So in order to make it more friendly to customers , the App will automaticly choose the best price promotion for customers.
 
-我们需要实现一个名为`bestCharge`的函数，它能够接收用户选择的菜品和数量（以特定格式呈现）作为输入，然后返回计算后的汇总信息。
+Now we need to implement function **bestCharge** which can take selected items and count(in specific form) as input, then return calculated receipt.
 
-已知：
 
-- 该店的菜品每一个都有一个唯一的id
-- 当前的优惠方式有:
-  - 满30减6元
-  - 指定菜品半价
-- 除菜品外没有其它收费（如送餐费、餐盒费等）
-- 如果两种优惠方式省钱一样多，则使用前一种优惠方式
 
-输入样例
--------
+Known:
+
+- Every item has only one uniq id
+- Two kinds of promotions:
+  - Buy 30 save 6 yuan
+  - 50% discount on specified items
+- There is no additional charge(e.g. delivery fee or package fee)
+- If two promotions get the same price, then the first promotion is prefered.
+
+## Sample for the 1st promotion
+
+### input
 
 ```
 ["ITEM0001 x 1", "ITEM0013 x 2", "ITEM0022 x 1"]
 ```
 
-输出样例
--------
+### output
 
 ```
-============= 订餐明细 =============
-黄焖鸡 x 1 = 18元
-肉夹馍 x 2 = 12元
-凉皮 x 1 = 8元
+============= Order Detail =============
+Fried Chicken x 1 = 18 yuan
+Hamburger x 2 = 12 yuan
+Tomato Noodle x 1 = 8 yuan
 -----------------------------------
-使用优惠:
-指定菜品半价(黄焖鸡，凉皮)，省13元
+Promotion Applied:
+50% discount on specified items(Fried Chicken，Noodle)，saved 13 yuan
 -----------------------------------
-总计：25元
+Total：25 yuan
 ===================================
 ```
 
-使用另一种优惠的样例
+Sample for the 2nd promotion
 ------------------
 
-输入：
+### input
 
 ```
 ["ITEM0013 x 4", "ITEM0022 x 1"]
 ```
 
-
-输出：
+### output
 
 ```
-============= 订餐明细 =============
-肉夹馍 x 4 = 24元
-凉皮 x 1 = 8元
+============= Order Detail =============
+Hamburger x 4 = 24 yuan
+Noodle x 1 = 8 yuan
 -----------------------------------
-使用优惠:
-满30减6元，省6元
+Promotion Applied:
+Buy 30 save 6 yuan，saved 6 yuan
 -----------------------------------
-总计：26元
+Total：26 yuan
 ===================================
 ```
 
-如果没有优惠可享受
+Sample for no promotion
 ---------------
 
-输入：
+### input
 
 ```
 ["ITEM0013 x 4"]
 ```
 
-输出：
+### output
 
 ```
-============= 订餐明细 =============
-肉夹馍 x 4 = 24元
+============= Order Detail =============
+Hamburger x 4 = 24 yuan
 -----------------------------------
-总计：24元
+Total：24 yuan
 ===================================
 ```
 
 
-## 基础作业
+## Practice requirement
 
-1. 相关代码在`src`目录下
-1. 实现`best-charge.js`中的`bestCharge`函数
-1. 写代码前先使用tasking整理思路并画出管道图
-1. 先写测试再写实现，代码须跟管道图匹配
-1. 代码整洁、函数粒度合适、命名有意义
+1. Put your code in **src** directory
+1. Implement function **bestCharge** in **best-charge.js**
+1. Task by drawing pipe diagram before coding
+1. Test first. Code should match your pipe diagram
+1. Clean code, proper size for function and meaningful naming
 
 
-## 作业提示
+## Tips
 
-1. 可使用`loadAllItems()`方法获取全部的菜品
-2. 可使用`loadPromotions()`方法获取全部的优惠方式
+1. function`loadAllItems()` can return all items
+2. function `loadPromotions()` can return all promotions
 
-## 运行测试
+## Run tests
 
-### 浏览器
+### in browser
 
-可使用浏览器打开`run-specs.html`文件运行测试
+open `run-specs.html` in browser to see the test result
